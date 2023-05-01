@@ -1,0 +1,102 @@
+1. What is the relationship between def statements and lambda expressions ?
+
+ans Both def statements and lambda expressions are used to define functions in Python.
+
+def statements define named functions and are typically used for creating more complex functions that require multiple statements or a more descriptive name. They have the following syntax:
+    def function_name(parameters):
+    statement(s)
+
+lambda expressions define anonymous functions with a single expression and are typically used for simple, one-line functions. They have the following syntax:
+
+    lambda parameters: expression
+
+2. What is the benefit of lambda?
+
+ans The main benefit of using lambda expressions in Python is that they allow you to create small, one-line functions without the need for defining a full function with a name, docstring, and return statement. This makes the code more concise and easier to read, especially when used in combination with higher-order functions like map(), filter(), and reduce().
+
+3.Compare and contrast map, filter, and reduce.
+
+ans  Map: The map() function applies a given function to each item of an iterable and returns a new list of the results. The syntax for map() is as follows:
+
+      map(function, iterable) for example:
+                                          def double(x):
+                                          return x * 2
+
+                                          numbers = [1, 2, 3, 4, 5]
+                                          result = list(map(double, numbers))
+                                          print(result)
+
+ output: [2, 4, 6, 8, 10]
+
+     Filter: The filter() function applies a given function to each item of an iterable and returns a new list with only the items for which the function returns True. The syntax for                      filter() is as follows:
+                    filter(function, iterable)
+
+           for example:
+                       def is_even(x):
+                       return x % 2 == 0
+
+                       numbers = [1, 2, 3, 4, 5]
+                       result = list(filter(is_even, numbers))
+                       print(result)
+     output:Output: [2, 4]
+
+
+      Reduce: The reduce() function applies a given function to the first two items of an iterable, then applies the function to the result and the next item, and so on, until all items have been processed. The syntax for reduce() is as follows:
+
+reduce(function, iterable)  
+          
+          for example:  
+                      from functools import reduce
+
+                      def add(x, y):
+                          return x + y
+
+                      numbers = [1, 2, 3, 4, 5]
+                      result = reduce(add, numbers)
+                      print(result)
+            
+               output:Output: 15
+
+4.What are function annotations, and how are they used?
+
+ans Function annotations are a way of adding metadata to the parameters and return value of a function in Python. They provide a way to specify the expected type and/or value of the arguments and the return value of a function. Function annotations are optional, and do not affect the runtime behavior of the function.
+
+
+def add(a: int, b: int) -> int:
+    return a + b
+
+
+5. What are recursive functions, and how are they used?
+ 
+ansA recursive function is a function that calls itself, either directly or indirectly, to solve a problem by breaking it down into smaller subproblems. The function will continue to call itself until it reaches a base case, where it returns a value instead of calling itself again. Recursive functions are commonly used in programming to solve problems that can be broken down into smaller, similar problems.
+
+
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+6. What are some general design guidelines for coding functions?         
+
+ans   1.Use descriptive and meaningful names for functions and parameters.
+      2.Follow the principle of "separation of concerns" and aim for functions to perform a single task or solve a specific problem.
+      3.Limit the number of input parameters to make the function more manageable and easier to read.
+      4.Use default parameter values where appropriate to simplify the function call for common use cases.
+      5.Avoid side effects and modify the input parameters only if it is expected behavior.
+      6.Use comments and docstrings to explain the purpose of the function, its parameters, and its return values.
+      7.Consider error handling and make sure to catch and handle exceptions appropriately. 
+      8.Write test cases to verify the correctness of the function's behavior under different scenarios.
+
+
+7. Name three or more ways that functions can communicate results to a caller.
+
+ans    Return statement: The return statement allows a function to return a value to the caller. The value can be of any data type, including numbers, strings, lists, dictionaries, or even    other functions.
+
+       Global variables: Functions can also communicate results to the caller by using global variables. A global variable is a variable that is defined outside of a function and can be accessed from any part of the program.
+
+        Side effects: A function can also communicate results to the caller by modifying variables or objects outside of the function. This is known as a side effect, and it can be useful in some cases, but it can also make the code harder to understand and maintain.
+
+        Exceptions: Functions can raise exceptions to indicate that an error has occurred. The caller can then catch the exception and handle the error in an appropriate way.
+
+        Output parameters: In some programming languages, functions can also have output parameters, which allow them to return multiple values. However, this is not a common practice in Python, where it is preferred to use return statements or data structures like tuples or dictionaries to return multiple values.
